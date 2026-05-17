@@ -63,8 +63,6 @@ const PLANS = [
   },
 ];
 
-const MAILTO = "mailto:jakeflow0@gmail.com";
-
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -73,6 +71,11 @@ export default function App() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const scrollToContact = (e) => {
+    e.preventDefault();
+    document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <div className="site">
@@ -86,7 +89,7 @@ export default function App() {
           <li><a href="#process">Process</a></li>
           <li><a href="#pricing">Pricing</a></li>
         </ul>
-        <a href={MAILTO} target="_blank" rel="noopener noreferrer" className="nav__cta">Get a quote</a>
+        <a href="#contact" onClick={scrollToContact} className="nav__cta">Get a quote</a>
       </nav>
 
       <header className="hero">
@@ -101,7 +104,7 @@ export default function App() {
             contractors, shops, and every business that deserves more than a Facebook page.
           </p>
           <div className="hero__actions">
-            <a href={MAILTO} target="_blank" rel="noopener noreferrer" className="btn-primary">Start your project</a>
+            <a href="#contact" onClick={scrollToContact} className="btn-primary">Start your project</a>
             <a href="#pricing" className="btn-ghost">View pricing</a>
           </div>
           <div className="hero__stats">
@@ -216,7 +219,8 @@ export default function App() {
                 ))}
               </ul>
               <a
-                href={MAILTO}
+                href="#contact"
+                onClick={scrollToContact}
                 className={plan.featured ? "btn-primary" : "btn-ghost"}
               >
                 Get started
@@ -226,19 +230,49 @@ export default function App() {
         </div>
       </section>
 
-      <section id="contact" className="cta-block">
-        <h2>Ready to get found online?</h2>
-        <p>
-          Tell us about your business. We&apos;ll reply with a quote and timeline—no pressure,
-          no 47-page proposals.
-        </p>
-        <a href={MAILTO} className="btn-primary">jakeflow0@gmail.com</a>
+      <section id="contact" className="contact-section">
+        <div className="contact-section__inner">
+          <div className="contact-section__content">
+            <p className="section__label">Contact</p>
+            <h2 className="section__title">Ready to get found online?</h2>
+            <p className="section__lead">
+              Tell us about your business. We&apos;ll reply with a quote and timeline—no pressure,
+              no 47-page proposals.
+            </p>
+            <div className="contact-info">
+              <p><strong>Email:</strong> jakeflow0@gmail.com</p>
+            </div>
+          </div>
+          <form 
+            action="https://formspree.io/f/xvgzjpql" 
+            method="POST" 
+            className="contact-form"
+          >
+            <div className="form-group">
+              <label htmlFor="name">Name</label>
+              <input type="text" id="name" name="name" required placeholder="Your Name" />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email Address</label>
+              <input type="email" id="email" name="_replyto" required placeholder="your@email.com" />
+            </div>
+            <div className="form-group">
+              <label htmlFor="business">Business Name</label>
+              <input type="text" id="business" name="business" placeholder="Your Business" />
+            </div>
+            <div className="form-group">
+              <label htmlFor="message">Message</label>
+              <textarea id="message" name="message" required placeholder="Tell us about your project..." rows="4"></textarea>
+            </div>
+            <button type="submit" className="btn-primary">Send Message</button>
+          </form>
+        </div>
       </section>
 
       <footer className="footer">
         <div className="footer__brand">FlowWeb</div>
         <p>© {new Date().getFullYear()} FlowWeb. Websites for every local business.</p>
-        <a href={MAILTO} style={{ color: "#c8a96e" }}>Contact</a>
+        <a href="#contact" onClick={scrollToContact} style={{ color: "#c8a96e" }}>Contact</a>
       </footer>
     </div>
   );
