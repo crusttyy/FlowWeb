@@ -244,7 +244,7 @@ export default function App() {
             </div>
           </div>
           <form 
-            action="https://formspree.io/f/xvgzjpql" 
+            action="https://formspree.io/jakeflow0@gmail.com" 
             method="POST" 
             className="contact-form"
           >
