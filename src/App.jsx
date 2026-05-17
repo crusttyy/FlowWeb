@@ -252,6 +252,7 @@ export default function App() {
             <input type="hidden" name="_subject" value="New Project Inquiry from FlowWeb" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://flow-web-azure-alpha.vercel.app/" />
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input type="text" id="name" name="name" required placeholder="Your Name" />
