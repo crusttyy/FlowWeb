@@ -86,7 +86,7 @@ export default function App() {
           <li><a href="#process">Process</a></li>
           <li><a href="#pricing">Pricing</a></li>
         </ul>
-        <a href={MAILTO} className="nav__cta">Get a quote</a>
+        <a href={MAILTO} target="_blank" rel="noopener noreferrer" className="nav__cta">Get a quote</a>
       </nav>
 
       <header className="hero">
@@ -101,7 +101,7 @@ export default function App() {
             contractors, shops, and every business that deserves more than a Facebook page.
           </p>
           <div className="hero__actions">
-            <a href={MAILTO} className="btn-primary">Start your project</a>
+            <a href={MAILTO} target="_blank" rel="noopener noreferrer" className="btn-primary">Start your project</a>
             <a href="#pricing" className="btn-ghost">View pricing</a>
           </div>
           <div className="hero__stats">
